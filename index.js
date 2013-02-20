@@ -9,8 +9,12 @@ module.exports = function (source, callback) {
       __dirname + "/lib/ember.js"
     ],
     function(errors, window) {
-      var fn = window.Ember.Handlebars.precompile(source);
-      callback(fn.toString());
+      try {
+        var fn = window.Ember.Handlebars.precompile(source);
+        callback(null, fn.toString());
+      } catch (err) {
+        callback(err, null)
+      }
     }
   );
 }
