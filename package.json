@@ -1,8 +1,29 @@
 {
   "name": "ember-template-precompile",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "homepage": "https://github.com/dbashford/ember-template-precompile",
+  "author": "David Bashford",
+  "description": "Ember template precompile module, broadly usable, but build for Mimosa",
+  "contributors": [
+    {
+      "name": "David Bashford",
+      "email": "dbashford@hotmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dbashford/ember-template-precompile"
+  },
+  "keywords": [
+    "ember",
+    "jsdom",
+    "template",
+    "precompile",
+    "mimosa"
+  ],
   "dependencies": {
     "jsdom": "0.3.4"
   },
+  "license": "MIT",
   "engines": { "node" : ">=0.8.16" }
 }
