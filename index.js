@@ -10,7 +10,7 @@ var compile = function (source, options, callback) {
   }
 }
 
-module.exports = function (source, options, callback) {
+exports.precompile = function (source, options, callback) {
   if (!options) {
     options = {}
   }
