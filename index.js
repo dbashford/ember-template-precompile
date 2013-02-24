@@ -1,18 +1,22 @@
 var jsdom = require('jsdom');
 var wind0w;
 
-var compile = function (source, callback) {
+var compile = function (source, options, callback) {
   try {
-    var fn = wind0w.Ember.Handlebars.precompile(source);
+    var fn = wind0w.Ember.Handlebars.precompile(source, options);
     callback(null, fn.toString());
   } catch (err) {
     callback(err, null)
   }
 }
 
-module.exports = function (source, callback) {
+module.exports = function (source, options, callback) {
+  if (!options) {
+    options = {}
+  }
+
   if (wind0w) {
-    compile(source, callback)
+    compile(source, options, callback)
   } else {
     jsdom.env(
       '<p>dumb I need a dom</p>',
@@ -23,7 +27,7 @@ module.exports = function (source, callback) {
       ],
       function(errors, window) {
         wind0w = window
-        compile(source, callback)
+        compile(source, options, callback)
       }
     );
   }
